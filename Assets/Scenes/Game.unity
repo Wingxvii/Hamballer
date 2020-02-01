@@ -1353,8 +1353,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 0.5
-  Jump: 2
+  Jump: 6
   hamsterRigid: {fileID: 0}
+  hamsterBall: {fileID: 75741314}
 --- !u!1 &812574701
 GameObject:
   m_ObjectHideFlags: 0
