@@ -248,7 +248,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -447,7 +447,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -709,7 +709,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -840,7 +840,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -971,7 +971,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -1102,7 +1102,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -1233,7 +1233,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -1252,7 +1252,7 @@ GameObject:
   - component: {fileID: 686754875}
   m_Layer: 11
   m_Name: Hamster
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1376,6 +1376,7 @@ MonoBehaviour:
   hamsterRigid: {fileID: 0}
   hamsterBall: {fileID: 75741314}
   outOfBall: 0
+  canJump: 1
 --- !u!1 &692777608
 GameObject:
   m_ObjectHideFlags: 0
@@ -1719,7 +1720,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -1958,7 +1959,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -2089,7 +2090,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -2319,7 +2320,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -2450,7 +2451,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -2581,7 +2582,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -2712,7 +2713,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0
@@ -2843,7 +2844,7 @@ MonoBehaviour:
   innitialRotation: {x: 0, y: 0, z: 0, w: 0}
   repairTime: 2
   collisionBreakThreshold: 15
-  impactForce: 5000
+  impactForce: 4500
   impactTorque: 5
   breakThis: 0
   repairThis: 0

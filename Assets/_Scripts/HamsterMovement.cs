@@ -10,6 +10,7 @@ public class HamsterMovement : MonoBehaviour
     public Rigidbody2D hamsterRigid;
     public Transform hamsterBall;
     public bool outOfBall;
+    public bool canJump;
 
     // Start is called before the first frame update
     void Start()
@@ -20,9 +21,10 @@ public class HamsterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Jump")) {
+        if (Input.GetButtonDown("Jump") && canJump) {
             //Jump
             hamsterRigid.velocity += new Vector2(hamsterBall.position.x - transform.position.x, hamsterBall.position.y - transform.position.y) * Jump;
+            canJump = false;
         }
 
         if (!outOfBall) {
@@ -51,4 +53,5 @@ public class HamsterMovement : MonoBehaviour
         }
 
     }
+
 }

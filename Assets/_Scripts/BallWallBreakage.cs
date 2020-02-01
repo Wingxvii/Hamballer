@@ -114,5 +114,9 @@ public class BallWallBreakage : MonoBehaviour
                 this.Break();
             }
         }
+
+        if (collision.gameObject.tag == "Player") {
+            collision.gameObject.GetComponent<HamsterMovement>().canJump = true;
+        }
     }
 }
