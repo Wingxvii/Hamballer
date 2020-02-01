@@ -7,6 +7,7 @@ TagManager:
   - Wall
   - Hazard
   - Ground
+  - Grapple
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Ball
   - Hamster
   - Hazard
-  - 
+  - Grapple
   - 
   - 
   - 

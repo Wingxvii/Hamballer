@@ -119,4 +119,12 @@ public class BallWallBreakage : MonoBehaviour
             collision.gameObject.GetComponent<HamsterMovement>().canJump = true;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (broken && collision.gameObject.tag == "Grapple")
+        {
+            Repair();
+        }
+    }
 }
