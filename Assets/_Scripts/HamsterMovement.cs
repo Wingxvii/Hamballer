@@ -19,7 +19,7 @@ public class HamsterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetButtonDown("Jump")) {
             //Jump
             hamsterRigid.velocity += new Vector2(hamsterBall.position.x - transform.position.x, hamsterBall.position.y - transform.position.y) * Jump;
         }
@@ -36,5 +36,14 @@ public class HamsterMovement : MonoBehaviour
             //Move Backward
             hamsterRigid.velocity = new Vector2(hamsterRigid.velocity.x - Speed, hamsterRigid.velocity.y);
         }
+
+
+        //movement using controller
+        float movement = Input.GetAxis("Movement") * Speed;
+        if (movement != 0.0f) {
+            hamsterRigid.velocity = new Vector2(hamsterRigid.velocity.x + movement, hamsterRigid.velocity.y);
+
+        }
+
     }
 }

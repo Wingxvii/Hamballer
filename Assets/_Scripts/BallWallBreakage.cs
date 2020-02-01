@@ -10,7 +10,6 @@ public class BallWallBreakage : MonoBehaviour
     public Quaternion innitialRotation;
     public float repairTime;
     public float collisionBreakThreshold;
-
     //impact force multiplier
     public float impactForce;
     public float impactTorque;
