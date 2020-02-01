@@ -22,7 +22,6 @@ public class HamsterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) {
             //Jump
             hamsterRigid.velocity = new Vector2(hamsterRigid.velocity.x, hamsterRigid.velocity.y + Jump);
-
         }
     }
 
@@ -32,13 +31,10 @@ public class HamsterMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W)) {
             //Move Forward
             hamsterRigid.velocity = new Vector2(hamsterRigid.velocity.x + Speed, hamsterRigid.velocity.y);
-
-
         }
         if (Input.GetKey(KeyCode.S)) {
             //Move Backward
             hamsterRigid.velocity = new Vector2(hamsterRigid.velocity.x - Speed, hamsterRigid.velocity.y);
-
         }
     }
 }
