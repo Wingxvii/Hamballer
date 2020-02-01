@@ -9,6 +9,7 @@ public class HamsterMovement : MonoBehaviour
     public float Jump;
     public Rigidbody2D hamsterRigid;
     public Transform hamsterBall;
+    public bool outOfBall;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,10 @@ public class HamsterMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump")) {
             //Jump
             hamsterRigid.velocity += new Vector2(hamsterBall.position.x - transform.position.x, hamsterBall.position.y - transform.position.y) * Jump;
+        }
+
+        if (!outOfBall) {
+            transform.up = new Vector3(hamsterBall.position.x - transform.position.x, hamsterBall.position.y - transform.position.y, 0);
         }
     }
 
