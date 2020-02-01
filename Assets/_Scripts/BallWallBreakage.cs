@@ -5,7 +5,7 @@ using UnityEngine;
 public class BallWallBreakage : MonoBehaviour
 {
     public bool broken;
-    public BoxCollider2D collider;
+    public BoxCollider2D ballCollider;
     public Vector2 innitialLocation;
     public Quaternion innitialRotation;
     public float repairTime;
@@ -23,7 +23,7 @@ public class BallWallBreakage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        collider = GetComponent<BoxCollider2D>();
+        ballCollider = GetComponent<BoxCollider2D>();
         innitialLocation = this.transform.localPosition;
         innitialRotation = this.transform.localRotation;
     }
