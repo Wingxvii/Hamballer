@@ -9,6 +9,7 @@ public class BallWallBreakage : MonoBehaviour
     public Vector2 innitialLocation;
     public Quaternion innitialRotation;
     public float repairTime;
+    public float collisionBreakThreshold;
 
     //impact force multiplier
     public float impactForce;
@@ -98,5 +99,21 @@ public class BallWallBreakage : MonoBehaviour
 
         yield return null;
 
+    }
+
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Hazard" && !broken) {
+
+            Destroy(collision.gameObject);
+            this.Break();
+        }
+
+        if (collision.gameObject.tag == "Ground" && !broken) {
+            if (collision.relativeVelocity.y > collisionBreakThreshold) {
+                this.Break();
+            }
+        }
     }
 }
