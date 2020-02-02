@@ -59,7 +59,7 @@ public class Grapple : MonoBehaviour
     {
         controllerDir = new Vector2(Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
         controllerDir.Normalize();
-        if (!inFlight && !(controllerDir.x == 0 && controllerDir.y == 0))
+        if (!inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
         {
             arrow.SetActive(true);
             arrow.transform.position = new Vector3(this.transform.position.x + (controllerDir.x * arrowOffset), this.transform.position.y + (controllerDir.y * arrowOffset), 0);
@@ -69,7 +69,7 @@ public class Grapple : MonoBehaviour
             arrow.SetActive(false);
         }
 
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) && !inFlight && !inRetract) {
             arrow.SetActive(true);
         }
         if (Input.GetMouseButton(0)) {

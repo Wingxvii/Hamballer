@@ -8,6 +8,7 @@ TagManager:
   - Hazard
   - Ground
   - Grapple
+  - Ball
   layers:
   - Default
   - TransparentFX
