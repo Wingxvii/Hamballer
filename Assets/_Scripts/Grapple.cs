@@ -70,53 +70,11 @@ public class Grapple : MonoBehaviour
                 Retract();
             }
         }
-    }
 
-    // Update is called once per frame
-    void LateUpdate()
-    {
-        if (playerNumber == 1)
-        {
-
-            controllerDir = new Vector2(Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
-            controllerDir.Normalize();
-            if (!inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
-            {
-                arrow.SetActive(true);
-                arrow.transform.position = new Vector3(this.transform.position.x + (controllerDir.x * arrowOffset), this.transform.position.y + (controllerDir.y * arrowOffset), 0);
-                arrow.transform.up = controllerDir;
-            }
-            else if (!Input.GetMouseButton(0))
-            {
-                arrow.SetActive(false);
-            }
-        }
-        else {
-            controllerDir = new Vector2(Input.GetAxis("Horizontal2"), -Input.GetAxis("Vertical2"));
-            controllerDir.Normalize();
-            if (!inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
-            {
-                arrow.SetActive(true);
-                arrow.transform.position = new Vector3(this.transform.position.x + (controllerDir.x * arrowOffset), this.transform.position.y + (controllerDir.y * arrowOffset), 0);
-                arrow.transform.up = controllerDir;
-            }
-            else if (!Input.GetMouseButton(0))
-            {
-                arrow.SetActive(false);
-            }
-        }
-
-        if (Input.GetMouseButtonDown(0) && !inFlight && !inRetract)
-        {
-            arrow.SetActive(true);
-        }
         if (Input.GetMouseButton(0))
         {
             mouseDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
             mouseDir.Normalize();
-
-            arrow.transform.position = new Vector3(this.transform.position.x + (mouseDir.x * arrowOffset), this.transform.position.y + (mouseDir.y * arrowOffset), 0);
-            arrow.transform.up = mouseDir;
         }
 
         //calculate line and physics
@@ -134,6 +92,43 @@ public class Grapple : MonoBehaviour
             {
                 transform.position = hamster.position + (hamster.up * offsetGrapple);
                 transform.rotation = hamster.rotation;
+            }
+        }
+
+    }
+
+    private void FixedUpdate()
+    {
+
+        if (playerNumber == 1)
+        {
+
+            controllerDir = new Vector2(Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
+            controllerDir.Normalize();
+            if (!inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
+            {
+                arrow.SetActive(true);
+                arrow.transform.position = new Vector3(this.transform.position.x + (controllerDir.x * arrowOffset), this.transform.position.y + (controllerDir.y * arrowOffset), 0);
+                arrow.transform.up = controllerDir;
+            }
+            else
+            {
+                arrow.SetActive(false);
+            }
+        }
+        else
+        {
+            controllerDir = new Vector2(Input.GetAxis("Horizontal2"), -Input.GetAxis("Vertical2"));
+            controllerDir.Normalize();
+            if (!inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
+            {
+                arrow.SetActive(true);
+                arrow.transform.position = new Vector3(this.transform.position.x + (controllerDir.x * arrowOffset), this.transform.position.y + (controllerDir.y * arrowOffset), 0);
+                arrow.transform.up = controllerDir;
+            }
+            else
+            {
+                arrow.SetActive(false);
             }
         }
 
