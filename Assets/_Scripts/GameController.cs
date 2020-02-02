@@ -23,7 +23,7 @@ public class GameController : MonoBehaviour
     //single pattern ends here
     #endregion  
 
-    public void EndGameWin()
+    public void EndGameWin()    
     {
         SceneManager.LoadScene(3);
     }

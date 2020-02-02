@@ -17,10 +17,11 @@ public class Grapple : MonoBehaviour
     public bool inRetract;
     public float arrowOffset;
     public float ShootingForce;
-
+    public float ropeLength;
 
     public LineRenderer line;
 
+    public int playerNumber = 1;
 
 
     // Start is called before the first frame update
@@ -35,51 +36,88 @@ public class Grapple : MonoBehaviour
 
     private void Update()
     {
-        if (!selfRenderer.isVisible && inFlight && !inRetract) {
+        if ((transform.position - hamster.position).magnitude > ropeLength && inFlight && !inRetract)
+        {
             Retract();
         }
-
         if (Input.GetMouseButtonUp(0) && !inRetract && !inFlight)
         {
             ShootMouse();
         }
 
 
-        if (Input.GetButtonDown("Fire1") && !inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) &&!inRetract)
+
+        if (playerNumber == 1)
         {
-            Shoot();
+            if (Input.GetButtonDown("Fire1") && !inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
+            {
+                Shoot();
+            }
+            else if (Input.GetButtonDown("Fire1") && inFlight && !inRetract)
+            {
+                Retract();
+            }
         }
-        else if (Input.GetButtonDown("Fire1") && inFlight && !inRetract) {
-            Retract();
+        else {
+
+
+            if (Input.GetButtonDown("Fire2") && !inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
+            {
+                Shoot();
+            }
+            else if (Input.GetButtonDown("Fire2") && inFlight && !inRetract)
+            {
+                Retract();
+            }
         }
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        controllerDir = new Vector2(Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
-        controllerDir.Normalize();
-        if (!inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
+        if (playerNumber == 1)
         {
-            arrow.SetActive(true);
-            arrow.transform.position = new Vector3(this.transform.position.x + (controllerDir.x * arrowOffset), this.transform.position.y + (controllerDir.y * arrowOffset), 0);
-            arrow.transform.up = controllerDir;
+
+            controllerDir = new Vector2(Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
+            controllerDir.Normalize();
+            if (!inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
+            {
+                arrow.SetActive(true);
+                arrow.transform.position = new Vector3(this.transform.position.x + (controllerDir.x * arrowOffset), this.transform.position.y + (controllerDir.y * arrowOffset), 0);
+                arrow.transform.up = controllerDir;
+            }
+            else if (!Input.GetMouseButton(0))
+            {
+                arrow.SetActive(false);
+            }
         }
-        else if(!Input.GetMouseButton(0)) {
-            arrow.SetActive(false);
+        else {
+            controllerDir = new Vector2(Input.GetAxis("Horizontal2"), -Input.GetAxis("Vertical2"));
+            controllerDir.Normalize();
+            if (!inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
+            {
+                arrow.SetActive(true);
+                arrow.transform.position = new Vector3(this.transform.position.x + (controllerDir.x * arrowOffset), this.transform.position.y + (controllerDir.y * arrowOffset), 0);
+                arrow.transform.up = controllerDir;
+            }
+            else if (!Input.GetMouseButton(0))
+            {
+                arrow.SetActive(false);
+            }
         }
 
-        if (Input.GetMouseButtonDown(0) && !inFlight && !inRetract) {
+        if (Input.GetMouseButtonDown(0) && !inFlight && !inRetract)
+        {
             arrow.SetActive(true);
         }
-        if (Input.GetMouseButton(0)) {
+        if (Input.GetMouseButton(0))
+        {
             mouseDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position);
             mouseDir.Normalize();
 
             arrow.transform.position = new Vector3(this.transform.position.x + (mouseDir.x * arrowOffset), this.transform.position.y + (mouseDir.y * arrowOffset), 0);
             arrow.transform.up = mouseDir;
         }
-
 
         //calculate line and physics
         if (inFlight)
@@ -88,8 +126,9 @@ public class Grapple : MonoBehaviour
             line.SetPosition(1, new Vector3(hamster.position.x, hamster.position.y));
 
         }
-        else {
-            line.SetPosition(0, new Vector3(0,0,0));
+        else
+        {
+            line.SetPosition(0, new Vector3(0, 0, 0));
             line.SetPosition(1, new Vector3(0, 0, 0));
             if (!inRetract)
             {
@@ -97,6 +136,7 @@ public class Grapple : MonoBehaviour
                 transform.rotation = hamster.rotation;
             }
         }
+
     }
 
     void Shoot() {
@@ -112,7 +152,6 @@ public class Grapple : MonoBehaviour
     }
 
     public void Retract() {
-        Debug.Log("Retracting");
         selfRigid.velocity = new Vector2(0, 0);
         inFlight = false;
         inRetract = true;
