@@ -13,7 +13,7 @@ public class BallWallBreakage : MonoBehaviour
     //impact force multiplier
     public float impactForce;
     public float impactTorque;
-
+    public AudioSource Hamsterball;
 
     [Header("Debuging Buttons")]
     public bool breakThis;
@@ -107,16 +107,27 @@ public class BallWallBreakage : MonoBehaviour
 
             Destroy(collision.gameObject);
             this.Break();
+            if (collision.gameObject.GetComponent<AudioSource>())
+            {
+                collision.gameObject.GetComponent<AudioSource>().Play();
+            }
+            Hamsterball.Play();
+
         }
 
         if (collision.gameObject.tag == "Ground" && !broken) {
             if (collision.relativeVelocity.y > collisionBreakThreshold) {
                 this.Break();
             }
+            if (collision.gameObject.GetComponent<AudioSource>()) {
+                collision.gameObject.GetComponent<AudioSource>().Play();
+            }
+            Hamsterball.Play();
         }
 
         if (collision.gameObject.tag == "Player") {
             collision.gameObject.GetComponent<HamsterMovement>().canJump = true;
+            Hamsterball.Play();
         }
     }
 

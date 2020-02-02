@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5465944817610578830}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1387,6 +1387,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Saw (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405130215138155187, guid: f0a9431282e534ef2a1d1d0958e9c2af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7251897456727409406, guid: f0a9431282e534ef2a1d1d0958e9c2af,
         type: 3}
@@ -4343,6 +4348,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CarJack (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8005162252855277482, guid: 46cad5c95f5ff4abda1899a081f472b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46cad5c95f5ff4abda1899a081f472b5, type: 3}
 --- !u!4 &1412175030815016462 stripped
@@ -5212,6 +5222,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Saw (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405130215138155187, guid: f0a9431282e534ef2a1d1d0958e9c2af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7251897456727409406, guid: f0a9431282e534ef2a1d1d0958e9c2af,
         type: 3}
@@ -6533,6 +6548,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Saw
       objectReference: {fileID: 0}
+    - target: {fileID: 5405130215138155187, guid: f0a9431282e534ef2a1d1d0958e9c2af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 7251897456727409406, guid: f0a9431282e534ef2a1d1d0958e9c2af,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6792,6 +6812,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CarJack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8005162252855277482, guid: 46cad5c95f5ff4abda1899a081f472b5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46cad5c95f5ff4abda1899a081f472b5, type: 3}

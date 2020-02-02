@@ -130,9 +130,10 @@ public class Grapple : MonoBehaviour
 
     }
 
-    void Shoot() {
+    public void Shoot() {
         inFlight = true;
         this.selfRigid.velocity = (ShootingForce * controllerDir) + hamster.gameObject.GetComponent<Rigidbody2D>().velocity;
+        GetComponent<AudioSource>().Play();
     }
 
     void ShootMouse()

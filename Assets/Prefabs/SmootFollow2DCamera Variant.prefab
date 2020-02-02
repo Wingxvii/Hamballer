@@ -9,7 +9,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1522400656776494, guid: 4ee145e1270a5234b974e07839605c8e, type: 3}
       propertyPath: m_Name
-      value: SmootFollow2DCamera
+      value: SmootFollow2DCamera Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1522400656776494, guid: 4ee145e1270a5234b974e07839605c8e, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4786823420713732, guid: 4ee145e1270a5234b974e07839605c8e, type: 3}
       propertyPath: m_LocalPosition.x
