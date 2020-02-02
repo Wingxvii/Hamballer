@@ -14,7 +14,6 @@ public class Grapple : MonoBehaviour
     public Transform hamster;
     public float retractTime;
     public bool inFlight;
-    public bool inRetract;
     public float arrowOffset;
     public float ShootingForce;
     public float ropeLength;
@@ -36,11 +35,11 @@ public class Grapple : MonoBehaviour
 
     private void Update()
     {
-        if ((transform.position - hamster.position).magnitude > ropeLength && inFlight && !inRetract)
+        if ((transform.position - hamster.position).magnitude > ropeLength && inFlight)
         {
             Retract();
         }
-        if (Input.GetMouseButtonUp(0) && !inRetract && !inFlight)
+        if (Input.GetMouseButtonUp(0) && !inFlight)
         {
             ShootMouse();
         }
@@ -49,11 +48,11 @@ public class Grapple : MonoBehaviour
 
         if (playerNumber == 1)
         {
-            if (Input.GetButtonDown("Fire1") && !inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
+            if (Input.GetButtonDown("Fire1") && !inFlight && !(controllerDir.x == 0 && controllerDir.y == 0))
             {
                 Shoot();
             }
-            else if (Input.GetButtonDown("Fire1") && inFlight && !inRetract)
+            else if (Input.GetButtonDown("Fire1") && inFlight)
             {
                 Retract();
             }
@@ -61,11 +60,11 @@ public class Grapple : MonoBehaviour
         else {
 
 
-            if (Input.GetButtonDown("Fire2") && !inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
+            if (Input.GetButtonDown("Fire2") && !inFlight && !(controllerDir.x == 0 && controllerDir.y == 0))
             {
                 Shoot();
             }
-            else if (Input.GetButtonDown("Fire2") && inFlight && !inRetract)
+            else if (Input.GetButtonDown("Fire2") && inFlight)
             {
                 Retract();
             }
@@ -88,11 +87,8 @@ public class Grapple : MonoBehaviour
         {
             line.SetPosition(0, new Vector3(0, 0, 0));
             line.SetPosition(1, new Vector3(0, 0, 0));
-            if (!inRetract)
-            {
-                transform.position = hamster.position + (hamster.up * offsetGrapple);
-                transform.rotation = hamster.rotation;
-            }
+            transform.position = hamster.position + (hamster.up * offsetGrapple);
+            transform.rotation = hamster.rotation;
         }
 
     }
@@ -105,7 +101,7 @@ public class Grapple : MonoBehaviour
 
             controllerDir = new Vector2(Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
             controllerDir.Normalize();
-            if (!inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
+            if (!inFlight && !(controllerDir.x == 0 && controllerDir.y == 0))
             {
                 arrow.SetActive(true);
                 arrow.transform.position = new Vector3(this.transform.position.x + (controllerDir.x * arrowOffset), this.transform.position.y + (controllerDir.y * arrowOffset), 0);
@@ -120,7 +116,7 @@ public class Grapple : MonoBehaviour
         {
             controllerDir = new Vector2(Input.GetAxis("Horizontal2"), -Input.GetAxis("Vertical2"));
             controllerDir.Normalize();
-            if (!inFlight && !(controllerDir.x == 0 && controllerDir.y == 0) && !inRetract)
+            if (!inFlight && !(controllerDir.x == 0 && controllerDir.y == 0))
             {
                 arrow.SetActive(true);
                 arrow.transform.position = new Vector3(this.transform.position.x + (controllerDir.x * arrowOffset), this.transform.position.y + (controllerDir.y * arrowOffset), 0);
@@ -149,7 +145,6 @@ public class Grapple : MonoBehaviour
     public void Retract() {
         selfRigid.velocity = new Vector2(0, 0);
         inFlight = false;
-        inRetract = true;
         StartCoroutine("RetractLerp");
     }
 
@@ -169,8 +164,6 @@ public class Grapple : MonoBehaviour
         // Make sure we got there
         transform.localPosition = hamster.position + (hamster.up * offsetGrapple);
         transform.localRotation = hamster.rotation;
-        inRetract = false;
-
         yield return null;
 
     }
