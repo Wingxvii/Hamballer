@@ -379,14 +379,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e2786869176e947960e96cbdbe7729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image1: {fileID: 1908577826}
-  image2: {fileID: 1176433503}
-  image3: {fileID: 1507056055}
-  image4: {fileID: 1865376260}
-  image5: {fileID: 1734922444}
-  image6: {fileID: 2053434579}
-  image7: {fileID: 1736885673}
+  images:
+  - {fileID: 1908577826}
+  - {fileID: 1176433503}
+  - {fileID: 1507056055}
+  - {fileID: 1865376260}
+  - {fileID: 1734922444}
+  - {fileID: 2053434579}
+  - {fileID: 1736885673}
   state: 0
+  sceneEnd: 2
 --- !u!1 &1271182608
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ public class MenuController : MonoBehaviour
         if (Input.GetButtonDown("Jump")) {
             SceneManager.LoadScene(sceneA);
         }
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && !Input.GetMouseButton(0))
         {
             SceneManager.LoadScene(sceneB);
         }

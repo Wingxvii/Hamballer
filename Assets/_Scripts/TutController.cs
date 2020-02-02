@@ -5,20 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class TutController : MonoBehaviour
 {
-    public GameObject image1;
-    public GameObject image2;
-    public GameObject image3;
-    public GameObject image4;
-    public GameObject image5;
-    public GameObject image6;
-    public GameObject image7;
 
+
+    public GameObject[] images;
     public int state = 0;
+    public int sceneEnd;
 
     private void Start()
     {
         ResetAll();
-        image1.SetActive(true);
+        images[0].SetActive(true);
 
     }
 
@@ -28,7 +24,7 @@ public class TutController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && state < images.Length)
         {
             state++;
         }
@@ -37,52 +33,24 @@ public class TutController : MonoBehaviour
             state--;
         }
 
-        switch (state) {
-            case 0:
-                ResetAll();
-                image1.SetActive(true);
-                break;
-            case 1:
-                ResetAll();
-                image2.SetActive(true);
-                break;
-            case 2:
-                ResetAll();
-                image3.SetActive(true);
-                break;
-            case 3:
-                ResetAll();
-                image4.SetActive(true);
-                break;
-            case 4:
-                ResetAll();
-                image5.SetActive(true);
-                break;
-            case 5:
-                ResetAll();
-                image6.SetActive(true);
-                break;
-            case 6:
-                ResetAll();
-                image7.SetActive(true);
-                break;
-            case 7:
-                ResetAll();
-                SceneManager.LoadScene(2);
-                break;
+        if (state == images.Length)
+        {
+            SceneManager.LoadScene(sceneEnd);
+        }
+        else
+        {
+
+            ResetAll();
+            images[state].SetActive(true);
         }
     }
 
 
     void ResetAll()
     {
-        image1.SetActive(false);
-        image2.SetActive(false);
-        image3.SetActive(false);
-        image4.SetActive(false);
-        image5.SetActive(false);
-        image6.SetActive(false);
-        image7.SetActive(false);
+        foreach (GameObject image in images) {
+            image.SetActive(false);
+        }
 
     }
 
