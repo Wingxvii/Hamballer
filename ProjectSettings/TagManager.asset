@@ -9,6 +9,7 @@ TagManager:
   - Ground
   - Grapple
   - Ball
+  - End
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Sinker
   - Entity
   - Background
-  - 
+  - End
   - 
   - 
   - 

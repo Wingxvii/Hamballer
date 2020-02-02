@@ -47,6 +47,7 @@ public class BallWallBreakage : MonoBehaviour
     //breaks the wall piece
     public void Break()
     {
+        
         if (!broken)
         {
             this.gameObject.AddComponent(typeof(Rigidbody2D));
@@ -61,6 +62,7 @@ public class BallWallBreakage : MonoBehaviour
         {
             Debug.LogWarning("Already Broken!");
         }
+        
     }
 
     public void Repair()

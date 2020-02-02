@@ -23,10 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lose2.unity
     guid: d8ac12f20afbd494ca7de24c9c423ea2
-  - enabled: 1
-    path: Assets/Scenes/End.unity
-    guid: c4689c28b7a658c45a4e328e5ec6041d
-  - enabled: 1
-    path: Assets/Scenes/MultiGame.unity
-    guid: a38074fd250a80b48b2c2141934c98e2
   m_configObjects: {}

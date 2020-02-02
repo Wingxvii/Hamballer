@@ -99,9 +99,17 @@ public class HamsterMovement : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ball") {
-            Debug.Log("End");
             StartCoroutine("EndGame");
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "End")
+        {
+            GameController.Instance.EndGameWin();
+        }
+
     }
 
 

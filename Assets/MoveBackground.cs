@@ -11,6 +11,6 @@ public class MoveBackground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.localPosition = new Vector3(( -2 - ((transform.position.x - endX) / endX) * 4), 2.1f,15.0f);
+        transform.localPosition = new Vector3(( -2.5f - ((transform.position.x - endX) / endX) * 5), 2.1f,15.0f);
     }
 }
